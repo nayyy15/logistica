@@ -6,142 +6,120 @@
   <title>Sistema de Logística Interativo</title>
   <style>
     :root {
-      --bg: #101010;
-      --bg-elev: #171717;
-      --surface: #111111;
-      --border: #2b2b2b;
-      --text: #e6e6e6;
-      --muted: #9aa0a6;
-      --primary: #2e7fb4;
-      --primary-600: #1f5f88;
-      --success: #2d8542;
-      --danger: #b13a2e;
-      --danger-700: #7d2a22;
-      --shadow: rgba(0,0,0,0.4);
+      --bg: #f7f9fc;
+      --bg-elev: #ffffff;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --text: #333333;
+      --muted: #6b7280;
+      --primary: #0D1321;
+      --primary-600: #1D2D44;
+      --success: #2ea44f;
+      --danger: #d93025;
+      --danger-700: #b3271d;
+      --shadow: rgba(0,0,0,0.08);
     }
-    /* Tema Grunge/Pro dark */
+    /* Tema Claro estilo Classroom */
     body {
       font-family: Arial, sans-serif;
-      background: radial-gradient(1000px 400px at 10% -10%, rgba(255,255,255,0.04), transparent),
-                  radial-gradient(800px 300px at 110% 0%, rgba(255,255,255,0.03), transparent),
-                  linear-gradient(180deg, #1a1a1a, var(--bg) 60%);
+      background: var(--bg);
       margin: 20px;
       padding: 0;
       color: var(--text);
       letter-spacing: 0.3px;
     }
-    .container { max-width: 1140px; margin: 0 auto; }
+    .container { max-width: 1280px; margin: 0 auto; padding-bottom: 140px; }
 
-    h2 {
-      color: #f1f1f1;
-      margin-top: 20px;
-      border-bottom: 2px dashed #3a3a3a;
-      padding-bottom: 6px;
-      text-transform: uppercase;
-    }
+    h2 { color: #1f2937; margin-top: 24px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
 
-    form, .card, table {
-      background-color: var(--bg-elev);
-      padding: 15px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 6px 18px var(--shadow);
-    }
+    form, .card, table { background-color: var(--bg-elev); padding: 16px; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; box-shadow: 0 10px 18px var(--shadow); }
+    form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 16px; }
 
     label {
       display: inline-block;
       margin: 8px 10px 8px 0;
     }
 
-    input[type="text"],
-    input[type="number"],
-    select {
-      width: 220px;
-      padding: 8px;
-      border: 1px solid #3a3a3a;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background: #0f0f0f;
-      color: #f2f2f2;
-      transition: box-shadow 0.15s ease, border-color 0.15s ease;
-    }
-    input::placeholder { color: #74797e; }
-    input:focus-visible, select:focus-visible { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(46,127,180,0.25); }
+    input[type="text"], input[type="number"], select { width: 300px; padding: 10px; border: 1px solid #d1d5db; border-radius: 10px; box-sizing: border-box; background: #ffffff; color: #111827; transition: box-shadow 0.15s ease, border-color 0.15s ease; }
+    input::placeholder { color: #9ca3af; }
+    input:focus-visible, select:focus-visible { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(26,115,232,0.2); }
 
-    button {
-      margin-top: 10px;
-      padding: 9px 16px;
-      background: linear-gradient(180deg, var(--primary), var(--primary-600));
-      color: #f7f7f7;
-      border: 1px solid #214a64;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: transform 0.05s ease, filter 0.2s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
+    button { margin-top: 10px; padding: 10px 16px; background: var(--primary); color: #ffffff; border: 1px solid var(--primary-600); border-radius: 8px; cursor: pointer; transition: transform 0.05s ease, filter 0.2s ease; letter-spacing: 0.2px; }
     button:hover { filter: brightness(1.06); }
     button:active { transform: translateY(1px); }
-    .secondary { background: linear-gradient(180deg, #6b6f73, #4b4f53) !important; border-color: #3a3e42 !important; color: #f1f1f1 !important; }
-    button.danger { background: linear-gradient(180deg, var(--danger), var(--danger-700)); border-color: #5a1e19; }
+    .secondary { background: #748CAB !important; border-color: #748CAB !important; color: #ffffff !important; }
+    button.danger { background: var(--danger); border-color: var(--danger-700); }
 
     table { border-collapse: collapse; margin-top: 10px; }
-    th, td { padding: 10px; border: 1px solid var(--border); text-align: left; }
-    th { background: #0f0f0f; color: #dcdcdc; text-transform: uppercase; font-size: 12px; letter-spacing: 0.8px; }
-    tbody tr:nth-child(odd) { background: #141414; }
-    tbody tr:hover { background: #191919; }
+    th, td { padding: 12px; border: 1px solid var(--border); text-align: left; }
+    th { background: #f3f4f6; color: #374151; text-transform: uppercase; font-size: 12px; letter-spacing: 0.8px; }
+    tbody tr:nth-child(odd) { background: #fafafa; }
+    tbody tr:hover { background: #f1f5f9; }
     thead th:last-child, tbody td:last-child { text-align: center; }
 
-    hr {
-      margin: 30px 0;
-      border: none;
-      border-top: 2px dashed #3a3a3a;
-    }
+    hr { margin: 30px 0; border: none; border-top: 1px solid #e5e7eb; }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 10px; margin: 10px 0 20px; }
-    .card { background: #111; border-color: #2b2b2b; }
-    .card .value { font-size: 22px; font-weight: bold; color: #eaeaea; }
-    .card .label { color: #9aa0a6; font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin: 10px 0 20px; }
+    .card { background: #ffffff; border-color: var(--border); }
+    .card .value { font-size: 26px; font-weight: 700; color: #111827; }
+    .card .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
 
     .toolbar { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
     .toolbar input { width: 260px; }
 
-    .toast {
-      position: fixed; right: 20px; bottom: 20px; padding: 12px 16px; border-radius: 6px;
-      color: #fff; background: var(--success); box-shadow: 0 4px 10px var(--shadow);
-      opacity: 0; transform: translateY(20px); transition: all 0.25s; pointer-events: none;
-      border: 1px solid #1e4f29;
-    }
+    .toast { position: fixed; right: 20px; bottom: 20px; padding: 12px 16px; border-radius: 8px; color: #fff; background: var(--success); box-shadow: 0 10px 18px var(--shadow); opacity: 0; transform: translateY(20px); transition: all 0.25s; pointer-events: none; border: 0; }
     .toast.show { opacity: 1; transform: translateY(0); }
-    .toast.error { background: var(--danger-700); border-color: #5a1e19; }
+    .toast.error { background: var(--danger); }
 
-    .progress {
-      width: 240px; height: 10px; background: #0f0f0f; border-radius: 10px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; border: 1px solid var(--border);
-    }
+    .progress { width: 240px; height: 10px; background: #eef2ff; border-radius: 10px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; border: 1px solid var(--border); }
     .progress > span { display: block; height: 100%; width: 0%; transition: width 0.25s; }
-    .progress > span.ok { background: linear-gradient(90deg, #2ecc71, #27ae60); }
-    .progress > span.warn { background: linear-gradient(90deg, #f39c12, #d35400); }
-    .progress > span.danger { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+    .progress > span.ok { background: #22c55e; }
+    .progress > span.warn { background: #f59e0b; }
+    .progress > span.danger { background: #ef4444; }
 
-    .subtabs { display: flex; gap: 8px; margin: 8px 0 12px; border-bottom: 1px dashed #3a3a3a; padding-bottom: 6px; }
-    .subtabs button { background: #0f0f0f; border: 1px solid var(--border); color: #dcdcdc; }
-    .subtabs button.active { background: #1a1a1a; border-color: #3a3a3a; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
+    .subtabs { display: flex; gap: 8px; margin: 8px 0 12px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px; }
+    .subtabs button { background: #f3f4f6; border: 1px solid #e5e7eb; color: #374151; border-radius: 8px; }
+    .subtabs button.active { background: #e5efff; border-color: #c7d2fe; box-shadow: inset 0 0 0 1px #c7d2fe; }
+    .subtab-content { display: none; }
+    .subtab-content.active { display: block; }
+
+    /* Tabs principais */
+    .tabs { display: flex; gap: 8px; border-bottom: 2px solid #e5e7eb; margin-bottom: 16px; }
+    .tab-btn { background: transparent; color: #374151; border: 0; padding: 10px 12px; border-bottom: 3px solid transparent; border-radius: 0; }
+    .tab-btn:hover { background: #f9fafb; }
+    .tab-btn.active { border-bottom-color: var(--primary); color: var(--primary-600); font-weight: 600; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* Full-bleed para tabelas ocuparem toda a largura da página */
+    .full-bleed { width: 100%; margin-left: 0; box-sizing: border-box; }
+
+    /* Painel de dados fixo */
+    .data-panel { position: fixed; right: 32px; bottom: 32px; display: flex; gap: 8px; align-items: center; padding: 10px 12px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 10px 18px var(--shadow); z-index: 1000; }
+    .data-panel label { margin: 0; }
+    .data-panel input[type="file"] { display: none; }
+    .toast { bottom: 90px; }
     .subtab-content { display: none; }
     .subtab-content.active { display: block; }
   </style>
 </head>
 <body>
   <div class="container">
-  <div class="cards">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="produtos" onclick="abrirTab('produtos')">Produtos</button>
+    <button class="tab-btn" data-tab="posicoes" onclick="abrirTab('posicoes')">Posições</button>
+    <button class="tab-btn" data-tab="alocacao" onclick="abrirTab('alocacao')">Alocação</button>
+  </div>
+  <div class="cards" style="margin-top:12px;">
     <div class="card"><div class="value" id="kpiProdutos">0</div><div class="label">Produtos</div></div>
     <div class="card"><div class="value" id="kpiPosicoes">0</div><div class="label">Posições</div></div>
     <div class="card"><div class="value" id="kpiAlocacoes">0</div><div class="label">Alocações</div></div>
   </div>
+  <div id="tab-produtos" class="tab-pane active">
   <h2>Cadastro de Produtos</h2>
   <form id="produtoForm">
-    <label>SKU: <input type="text" id="sku" maxlength="5" pattern="[A-Za-z0-9]{5}" title="5 caracteres alfanuméricos" style="text-transform: uppercase;" required></label><br>
-    <label>Descrição (DESC): <input type="text" id="descricao" maxlength="50" style="text-transform: uppercase;" required></label><br>
+    <label>SKU: <input type="text" id="sku" maxlength="5" pattern="[A-Za-z0-9]{5}" title="5 caracteres alfanuméricos" style="text-transform: uppercase;" required></label>
+    <label>Descrição (DESC): <input type="text" id="descricao" maxlength="50" style="text-transform: uppercase;" required></label>
     <label>Unidade de Medida:
       <select id="unidade">
         <option value="UN">UN</option>
@@ -160,17 +138,18 @@
         <option value="DZ">DZ</option>
         <option value="PAL">PAL</option>
       </select>
-    </label><br>
-    <label>Peso Padrão (kg): <input type="number" id="peso" step="0.01" min="0" required></label><br>
-    <label>Volume Padrão (m³): <input type="number" id="volume" step="0.0001" min="0" required></label><br>
+    </label>
+    <label>Peso Padrão (kg): <input type="number" id="peso" step="0.01" min="0" required></label>
+    <label>Volume Padrão (m³): <input type="number" id="volume" step="0.0001" min="0" required></label>
+    <div style="flex:1 1 100%; height:0;"></div>
     <button type="submit">Cadastrar Produto</button>
   </form>
 
-  <div class="toolbar">
-    <input type="text" id="filtroProdutos" placeholder="Filtrar por SKU/Descrição...">
-    <button class="secondary" onclick="exportarProdutosCSV()">Exportar CSV</button>
+  <div class="toolbar" style="justify-content: space-between;">
+    <div><input type="text" id="filtroProdutos" placeholder="Filtrar por SKU/Descrição..."></div>
+    <div><button class="secondary" onclick="exportarProdutosCSV()">Exportar CSV</button></div>
   </div>
-  <table id="tabelaProdutos">
+  <table id="tabelaProdutos" class="full-bleed" style="margin-top:8px;">
     <thead>
       <tr>
         <th>SKU</th>
@@ -185,22 +164,25 @@
   </table>
 
   <hr>
+  </div>
 
+  <div id="tab-posicoes" class="tab-pane">
   <h2>Cadastro de Posições</h2>
-  <div class="toolbar">
-    <input type="text" id="filtroPosicoes" placeholder="Filtrar por endereço...">
+  <div class="toolbar" style="justify-content: space-between;">
+    <div><input type="text" id="filtroPosicoes" placeholder="Filtrar por endereço..."></div>
   </div>
   <form id="posicaoForm">
     <label>Armazém: <input type="text" id="armazem" maxlength="3" pattern="[A-Za-z][0-9]{2}" title="Ex.: A12 (1 letra + 2 dígitos)" style="text-transform: uppercase;" required></label>
     <label>Rua: <input type="text" id="rua" maxlength="2" pattern="\d{2}" title="2 dígitos" required></label>
     <label>Nível: <input type="text" id="nivel" maxlength="2" pattern="\d{2}" title="2 dígitos" required></label>
-    <label>Prateleira: <input type="text" id="prateleira" maxlength="3" pattern="\d{3}" title="3 dígitos" required></label><br>
+    <label>Prateleira: <input type="text" id="prateleira" maxlength="3" pattern="\d{3}" title="3 dígitos" required></label>
     <label>Capacidade (kg): <input type="number" id="capacidadeKg" step="0.01" min="0" required></label>
-    <label>Capacidade (m³): <input type="number" id="capacidadeM3" step="0.0001" min="0" required></label><br>
+    <label>Capacidade (m³): <input type="number" id="capacidadeM3" step="0.0001" min="0" required></label>
+    <div style="flex:1 1 100%; height:0;"></div>
     <button type="submit">Cadastrar Posição</button>
   </form>
 
-  <table id="tabelaPosicoes">
+  <table id="tabelaPosicoes" class="full-bleed" style="margin-top:8px;">
     <thead>
       <tr>
         <th>Endereço</th>
@@ -213,7 +195,9 @@
   </table>
 
   <hr>
+  </div>
 
+  <div id="tab-alocacao" class="tab-pane">
   <h2>Alocar Produto em Posição</h2>
   <div class="subtabs">
     <button type="button" class="active" data-subtab="selecionar" onclick="trocarSubAba('selecionar')">Selecionar</button>
@@ -226,7 +210,7 @@
     </label>
     <label>Endereço:
       <select id="enderecoAlocar"></select>
-    </label><br>
+    </label>
     <div>
       <label>DESC: <input type="text" id="descSelecionada" readonly></label>
       <label>UN: <input type="text" id="unidadeSelecionada" readonly></label>
@@ -241,11 +225,11 @@
     <span style="margin-left:10px;">Uso Peso:</span>
     <div class="progress"><span id="barPeso"></span></div>
     <span id="lblPeso" style="font-size:12px;color:#7f8c8d;margin-left:6px;"></span>
-    <br>
-    <span>Uso Volume:</span>
+    <div style="flex:1 1 100%;height:0;"></div>
+    <span style="margin-left:0;">Uso Volume:</span>
     <div class="progress"><span id="barVolume"></span></div>
     <span id="lblVolume" style="font-size:12px;color:#7f8c8d;margin-left:6px;"></span>
-    <br>
+    <div style="flex:1 1 100%;height:0;"></div>
     <button type="submit">Alocar Produto</button>
   </form>
   </div>
@@ -263,7 +247,7 @@
     </table>
   </div>
 
-  <table id="tabelaAlocacoes">
+  <table id="tabelaAlocacoes" class="full-bleed" style="margin-top:8px;">
     <thead>
       <tr>
         <th>Endereço</th>
@@ -279,15 +263,18 @@
   </table>
 
   <hr>
-  <div class="toolbar">
-    <button class="secondary" onclick="exportarJSON()">Exportar JSON</button>
-    <label class="secondary" style="padding:8px 12px;background:#ecf0f1;border-radius:4px;cursor:pointer;">
-      Importar JSON
-      <input type="file" id="inputImport" accept="application/json" style="display:none;" />
-    </label>
-    <button class="danger" onclick="limparBase()">🧹 Limpar Toda a Base de Dados</button>
   </div>
   <div id="toast" class="toast"></div>
+  </div>
+
+  <!-- Painel fixo de Dados -->
+  <div class="data-panel">
+    <button class="secondary" onclick="exportarJSON()">Exportar JSON</button>
+    <label class="secondary" style="padding: 10px 16px;border-radius:8px;cursor:pointer; margin-top: 8px;">
+      Importar JSON
+      <input type="file" id="inputImport" accept="application/json" />
+    </label>
+    <button class="danger" onclick="limparBase()"> Limpar Base</button>
   </div>
 
   <script>
@@ -338,6 +325,12 @@
           option.textContent = `${produto.sku} - ${produto.descricao}`;
           skuAlocar.appendChild(option);
         });
+      // Define a primeira opção e atualiza os campos
+      if (skuAlocar.options.length > 0 && !skuAlocar.value) {
+        skuAlocar.selectedIndex = 0;
+      }
+      atualizarProdutoSelecionado();
+      atualizarPreviewCapacidade();
     }
 
     function carregarPosicoes() {
@@ -360,6 +353,12 @@
           option.textContent = posicao.endereco;
           enderecoAlocar.appendChild(option);
         });
+      // Define a primeira opção e atualiza os campos
+      if (enderecoAlocar.options.length > 0 && !enderecoAlocar.value) {
+        enderecoAlocar.selectedIndex = 0;
+      }
+      atualizarPosicaoSelecionada();
+      atualizarPreviewCapacidade();
     }
 
     function carregarAlocacoes() {
@@ -586,6 +585,17 @@
       setTimeout(() => { t.className = 'toast'; }, 2200);
     }
 
+    function abrirTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.querySelector(`.tab-btn[data-tab="${tab}"]`);
+      if (btn) btn.classList.add('active');
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      const map = { produtos: 'tab-produtos', posicoes: 'tab-posicoes', alocacao: 'tab-alocacao', dados: 'tab-dados' };
+      const alvo = document.getElementById(map[tab]);
+      if (alvo) alvo.classList.add('active');
+      if (tab === 'alocacao') { atualizarPreviewCapacidade(); atualizarResumoCapacidade(); }
+    }
+
     function trocarSubAba(qual) {
       document.querySelectorAll('.subtabs button').forEach(b => b.classList.remove('active'));
       const btn = document.querySelector(`.subtabs button[data-subtab="${qual}"]`);
@@ -705,7 +715,7 @@
       if (!confirm("Tem certeza que deseja apagar todos os dados?")) {
         return;
       }
-      const senha = prompt('Digite a senha para confirmar (0124):');
+      const senha = prompt('Digite a senha para confirmar:');
       if (senha !== '0124') {
         alert('Senha incorreta. Operação cancelada.');
         return;
